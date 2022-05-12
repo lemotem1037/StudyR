@@ -51,12 +51,28 @@ v9
 ## 벡터 이름붙이기
 absent = c(8, 2, 0, 4, 1)
 absent
-names(absent) <- c('Mon', 'Tue', 'Wed', 'Thu', 'Fri') # 결석석
+names(absent) <- c('Mon', 'Tue', 'Wed', 'Thu', 'Fri') # 결석
 absent
 
 
 
+## 벡터 이름붙이기
+absent = c(8, 2, 0, 4, 1)
+names(absent)
+names(absent) <- c('Mon', 'Tue', 'Wed', 'Thu', 'Fri')
+names(absent)
 
+absent[0]  # 인덱스는 1부터 출발
+absent[1]
+absent[2]
+absent[5]
+absent[6]  # 결측값 NA로 표시 Error는 안 남
+absent['Mon']
+absent['Fri']
 
+vec.1 <- c('Mon', 'Tue', 'Wed', 'Thu', 'Fri')
+names(vec.1) <- c(1,2,3,4,5)
+names(vec.1)
+vec.1[0]
 
-
+ver.1
