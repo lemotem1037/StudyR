@@ -66,3 +66,5 @@ who <- 'kim'
 sum =  deposit[who] * (1 + rate[who]/100)^period[who]
 sum
 
+
+# 산술연산으로 간단하게 결과내기

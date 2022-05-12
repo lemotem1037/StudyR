@@ -66,8 +66,38 @@ condi <- d > 5 & d < 8
 d[condi]
 
 
+## LAB (카페 매출액 분석하기)
+espresso <- c(4,5,3,6,5,4,7)
+americano <-c(63,68,64,68,72,89,94)
+latte <- c(61,70,59,71,71,92,88)
+
+price <-c(2000, 2500, 3000)
+names(price) <-c('espresso', 'americano', 'latte')
+price
+
+sale.espresso <- price['espresso'] * espresso
+sale.espresso
+sale.americano <- price['americano'] * americano
+sale.americano
+sale.latte <- price['latte'] * latte
+sale.latte
+
+# 요일별 하루매출
+sale.day <- sale.espresso + sale.americano + sale.latte
+sale.day
+names(sale.day) <- c('Mon', 'Tue', 'Wed', 'Thu', 'Fry', 'Sat', 'Sun')
+
+cat('총 매출액', sum(sale.day), '원')
+sale.sum <- sum(sale.day)
+sale.mean <- mean(sale.day)
+sale.mean
+cat('평균 매출액', sale.mean, '원')
+sale.day
+result <- names(sale.day[sale.day >= sale.mean])
+cat('평균 매출액보다 매출액이 높은 요일은', result)
 
 
-
-
+cat('총 매출액', sum(sale.day), '원')
+cat('평균 매출액', sale.mean, '원')
+cat('평균 매출액보다 매출액이 높은 요일은', result)
 
