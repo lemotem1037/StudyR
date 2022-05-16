@@ -117,5 +117,77 @@ idx
 ChildSpeaks[idx, 'm2'] <- 5
 
 
+ChildSpeaks$total <- ChildSpeaks$m1 + ChildSpeaks$m2
+
+idx <- which(ChildSpeaks$total < 3)
+ChildSpeaks[idx, 'result'] <- '매우 늦음'
+idx <- which(ChildSpeaks$total >= 3 & ChildSpeaks$total < 5)
+ChildSpeaks[idx, 'result'] <- '늦음'
+idx <- which(ChildSpeaks$total >= 5 & ChildSpeaks$total < 7)
+ChildSpeaks[idx, 'result'] <- '보통'
+idx <- which(ChildSpeaks$total >= 7 & ChildSpeaks$total < 9)
+ChildSpeaks[idx, 'result'] <- '빠름'
+idx <- which(ChildSpeaks$total >=9)
+ChildSpeaks[idx, 'result'] <- '매우 빠름'
+
+
+ChildSpeaks[which.min(ChildSpeaks$total), ]
+
+
+
+
+
+## 종업원 팁 분석하기
+install.packages('reshape2')
+library(reshape2)
+str(tips)
+
+View(tips)
+
+# 성별 구분
+unique(tips$sex)
+
+idx <- which(tips[, 'sex'] == 'Female')
+avg.female <- mean(tips[idx, 'tip'])
+
+idx <- which(tips[, 'sex'] == 'Male')
+avg.male <- mean(tips[idx, 'tip'])
+
+avg.female
+
+avg.male
+
+# 흡연 구분
+unique(tips$smoker)
+
+idx <- which(tips$smoker == 'Yes')
+avg.smoker <- mean(tips[idx, 'tip'])
+
+idx <- which(tips$smoker == 'No')
+avg.nonsmoker <- mean(tips[idx, 'tip'])
+
+avg.smoker
+
+avg.nonsmoker 
+
+# 코드 이용 meanbycol.tip <- function(tips, colname){ }
+
+meanbycol.tip <- function(colname){
+  value <- unique(tips[, colname])
+  result <- list()
+  for(i in 1:length(value)) {
+    idx <- which(tips[,colname] == value[i])
+    result[i] <- mean(tipe[idx,'tip'])
+  }
+}
+names(result) <- value
+return(result)
+
+
+source('myfunc.R')
+meanbycol.tip('sex')
+meanbycol.tip('smoker')
+meanbycol.tip('size')
+meanbycol.tip('day')
 
 

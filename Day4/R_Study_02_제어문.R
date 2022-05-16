@@ -58,10 +58,11 @@ for (y in 1:9) {
 # 구구단 파이썬과 비교
 for (x in 2:9){
   for (y in 1:9){
-    cat(x,'x'y,'=',x*y, '')
+    cat(x,'x', y,'=',x*y, '')
   }
   cat('\n')
 }
+
 
 # 짝수 
 for (i in 1:20){
