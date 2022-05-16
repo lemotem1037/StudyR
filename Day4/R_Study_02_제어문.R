@@ -59,10 +59,11 @@ for (y in 1:9) {
 for (x in 2:9){
   for (y in 1:9){
     cat(x,'x', y,'=',x*y, '')
+    cat(x,'x'y,'=',x*y, '')
+
   }
   cat('\n')
 }
-
 
 # 짝수 
 for (i in 1:20){
@@ -78,6 +79,12 @@ mylabel <- c()#   빈벡터 생성
 
 
 for(i in 1:norow) {
+
+norow <- nrow(iris)
+norow
+mylabel <- c() # 빈벡터 생성
+for (i in 1:norow) {
+
   if (iris$Petal.Length[i] <= 1.6) {
     mylable[i] <- 'L'
   } else if (iris$Petal.Length[i] >= 5.1 {
@@ -125,6 +132,8 @@ mydiv <- function(x, y=2) {
 mydiv(10, 3)
 mydiv(10)
 
+
+
 myfunc <- function(x, y){
   val.sum <- x+y
   val.sum <- x*y
@@ -141,14 +150,4 @@ result$mul
 apply(iris[, 1:4], 2, mean)
 
 apply(iris[, 1:4], 2, sum)
-
-
-
-
-
-
-
-
-
-
 
